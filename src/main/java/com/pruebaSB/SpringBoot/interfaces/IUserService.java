@@ -1,4 +1,6 @@
-package com.pruebaSB.SpringBoot.service;
+package com.pruebaSB.SpringBoot.interfaces;
+
+
 
 import com.pruebaSB.SpringBoot.model.User;
 import java.util.List;
