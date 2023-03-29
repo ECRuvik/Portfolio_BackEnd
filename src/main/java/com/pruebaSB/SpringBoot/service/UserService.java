@@ -1,5 +1,6 @@
 package com.pruebaSB.SpringBoot.service;
 
+import com.pruebaSB.SpringBoot.interfaces.IUserService;
 import com.pruebaSB.SpringBoot.model.User;
 import com.pruebaSB.SpringBoot.repository.UserRepository;
 import java.util.List;
@@ -13,19 +14,8 @@ public class UserService implements IUserService {
     public UserRepository userRepo;
 
     @Override
-    public User saveUser(User user) throws Exception {
-        User userUsername = userRepo.findByUsername(user.getUsername());
-        User userEmail = userRepo.findByEmail(user.getEmail());
-        if(userUsername != null) {
-            System.out.println("El nombre de usuario ya está en uso");
-            throw new Exception("El nombre de usuario ya se encuentra registrado.");
-        } else if(userEmail != null)  {
-            System.out.println("Este correo ya está en uso");
-            throw new Exception("Este correo electrónico ya se encuentra registrado.");
-        } else {
+    public void saveUser(User user) {
             userRepo.save(user);
-        }
-        return user;
     }
     
     @Override
@@ -41,16 +31,6 @@ public class UserService implements IUserService {
     @Override
     public User findUser(Long id) {
         return userRepo.findById(id).orElse(null);
-    }
-    
-    @Override
-    public User findUserByUsername(String username) {
-        return userRepo.findByUsername(username);
-    }
-    
-    @Override
-    public User findUserByEmail(String email) {
-        return userRepo.findByEmail(email);
     }
     
 }

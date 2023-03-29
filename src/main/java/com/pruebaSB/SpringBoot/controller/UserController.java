@@ -27,18 +27,8 @@ public class UserController {
     }
     
     @PostMapping ("/add")
-    public void addUser (@RequestBody User user) throws Exception {
+    public void addUser (@RequestBody User user) {
         userServ.saveUser(user);
-    }
-    
-    @GetMapping("/username/{username}")
-    public User getUserByUsername (@PathVariable("username") String username) {
-        return userServ.findUserByUsername(username);
-    }
-    
-    @GetMapping("/email/{email}")
-    public User getUserByEmail (@PathVariable("email") String email) {
-        return userServ.findUserByEmail(email);
     }
     
     @DeleteMapping ("/delete/{user_id}")
