@@ -6,7 +6,7 @@ import java.util.List;
 public interface IUserLocationService {
     
     // Trae lista de usuarios
-    public List<UserLocation> getLocation ();
+    public List<UserLocation> getLocations ();
     
     // Añade un usuario
     public void saveLocation (UserLocation location);

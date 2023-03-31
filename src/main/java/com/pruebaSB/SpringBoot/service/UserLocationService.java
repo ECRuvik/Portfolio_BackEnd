@@ -17,7 +17,7 @@ public class UserLocationService implements IUserLocationService {
     public UserLocationRepository locationRepo;
     
     @Override
-    public List<UserLocation> getLocation() {
+    public List<UserLocation> getLocations() {
         return locationRepo.findAll();
     }
 
