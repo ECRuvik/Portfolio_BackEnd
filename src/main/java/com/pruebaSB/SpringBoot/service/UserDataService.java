@@ -36,17 +36,17 @@ public class UserDataService implements IUserDataService {
 
     @Override
     public UserData updateUserData(UserData userData, Long data_id) {
-        Optional<UserData> localDataUser = userData.findById(data_id);
+        Optional<UserData> localDataUser = dataRepo.findById(data_id);
         UserData data = null;
         if (localDataUser.isPresent()) {
             data = localDataUser.get();
-            data.setAbout(about);
-            data.setFullName(fullName);
-            data.setLastName(lastName);
-            data.setName(name);
-            data.setResume(resume);
-            data.setUrl_img(url_img);
-            data.setUserLocation(userLocation);
+            data.setAbout(data.getAbout());
+            data.setFullName(data.getFullName());
+            data.setLastName(data.getLastName());
+            data.setName(data.getName());
+            data.setResume(data.getResume());
+            data.setUrl_img(data.getUrl_img());
+            data.setUserLocation(data.getUserLocation());
             data = dataRepo.save(data);
         }
         return data;

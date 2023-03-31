@@ -38,18 +38,18 @@ public class ProyectService implements IProyectService {
 
     @Override
     public Proyect updateProyect(Proyect proyect, Long proyect_id) {
-        Optional<Proyect> localProyect = proyect.findById(proyect_id);
+        Optional<Proyect> localProyect = proyectRepo.findById(proyect_id);
         Proyect proyecti = null;
         if (localProyect.isPresent()) {
             proyecti = localProyect.get();
-            proyecti.setAbout(about);
-            proyecti.setEndDate(endDate);
-            proyecti.setLogo_url(logo_url);
-            proyecti.setName(name);
-            proyecti.setStartDate(startDate);
-            proyecti.setStatus(status);
-            proyecti.setType(type);
-            proyecti.setUrl(url);
+            proyecti.setAbout(proyecti.getAbout());
+            proyecti.setEndDate(proyecti.getEndDate());
+            proyecti.setLogo_url(proyecti.getLogo_url());
+            proyecti.setName(proyecti.getName());
+            proyecti.setStartDate(proyecti.getStartDate());
+            proyecti.setStatus(proyecti.getStatus());
+            proyecti.setType(proyecti.getType());
+            proyecti.setUrl(proyecti.getUrl());
             proyecti = proyectRepo.save(proyect);
         }
         return proyect;

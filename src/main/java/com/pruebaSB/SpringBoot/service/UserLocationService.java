@@ -38,13 +38,13 @@ public class UserLocationService implements IUserLocationService {
 
     @Override
     public UserLocation updateLocation(UserLocation location, Long location_id) {
-        Optional<UserLocation> localLocation = location.findById(location_id);
+        Optional<UserLocation> localLocation = locationRepo.findById(location_id);
         UserLocation locationi = null;
         if (localLocation.isPresent()) {
             locationi = localLocation.get();
-            locationi.setAddress(address);
-            locationi.setCity(city);
-            locationi.setPostal_code(postal_code);
+            locationi.setAddress(locationi.getAddress());
+            locationi.setCity(locationi.getCity());
+            locationi.setPostal_code(location.getPostal_code());
             locationi = locationRepo.save(location);
         }
         return locationi;

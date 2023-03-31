@@ -1,6 +1,7 @@
 package com.pruebaSB.SpringBoot.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -37,11 +38,11 @@ public class StateService implements IStateService {
 
     @Override
     public State updateState(State state, Long state_id) {
-        Optional<State> localState = state.findById(state_id);
+        Optional<State> localState = stateRepo.findById(state_id);
         State statei = null;
         if (localState.isPresent()) {
             statei = localState.get();
-            statei.setName(name);
+            statei.setName(statei.getName());
             statei = stateRepo.save(state);
         }
         return state;

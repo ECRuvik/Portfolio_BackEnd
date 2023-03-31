@@ -38,17 +38,17 @@ public class StudyService implements IStudyService {
 
     @Override
     public Study updateStudy(Study study, Long study_id) {
-        Optional<Study> localStudy = study.findById(study_id);
+        Optional<Study> localStudy = studyRepo.findById(study_id);
         Study stdy = null;
         if (localStudy.isPresent()) {
             stdy = localStudy.get();
-            stdy.setAbout(about);
-            stdy.setEndDate(endDate);
-            stdy.setInstitution(institution);
-            stdy.setLogo_url(logo_url);
-            stdy.setName(name);
-            stdy.setStartDate(startDate);
-            stdy.setTitle(title);
+            stdy.setAbout(stdy.getAbout());
+            stdy.setEndDate(stdy.getEndDate());
+            stdy.setInstitution(stdy.getInstitution());
+            stdy.setLogo_url(stdy.getLogo_url());
+            stdy.setName(stdy.getName());
+            stdy.setStartDate(stdy.getStartDate());
+            stdy.setTitle(stdy.getTitle());
             stdy = studyRepo.save(study);
         }
         return study;

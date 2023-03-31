@@ -1,6 +1,7 @@
 package com.pruebaSB.SpringBoot.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -37,16 +38,16 @@ public class JobService implements IJobService {
 
     @Override
     public Job updateJob(Job job, Long job_id) {
-        Optional<Job> localState = job.findById(job_id);
+        Optional<Job> localJob = jobRepo.findById(job_id);
         Job jobi = null;
         if (localJob.isPresent()) {
             jobi = localJob.get();
-            jobi.setAbout(about);
-            jobi.setEndDate(endDate);
-            jobi.setLogo_url(logo_url);
-            jobi.setName(name);
-            jobi.setPosition(position);
-            jobi.setStartDate(startDate);
+            jobi.setAbout(jobi.getAbout());
+            jobi.setEndDate(jobi.getEndDate());
+            jobi.setLogo_url(jobi.getLogo_url());
+            jobi.setName(jobi.getName());
+            jobi.setPosition(jobi.getPosition());
+            jobi.setStartDate(jobi.getStartDate());
             jobi = jobRepo.save(job);
         }
         return job;

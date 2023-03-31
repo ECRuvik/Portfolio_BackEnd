@@ -38,12 +38,12 @@ public class SkillService implements ISkillService {
 
     @Override
     public Skill updateSkill(Skill skill, Long skill_id) {
-        Optional<Skill> localSkill = skill.findById(skill_id);
+        Optional<Skill> localSkill = skillRepo.findById(skill_id);
         Skill skilli = null;
-        if (localState.isPresent()) {
+        if (localSkill.isPresent()) {
             skilli = localSkill.get();
-            skilli.setLevel(level);
-            skilli.setName(name);
+            skilli.setLevel(skilli.getLevel());
+            skilli.setName(skilli.getName());
             skilli = skillRepo.save(skill);
         }
         return skill;
