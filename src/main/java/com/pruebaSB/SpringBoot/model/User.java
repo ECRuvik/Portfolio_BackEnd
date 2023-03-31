@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-@Table (name = "users")
+@Table(name = "users")
 public class User {
     
     @Id
@@ -15,6 +15,9 @@ public class User {
     private String email;
     private String username;
     private String password;
+    
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private UserData userData;
 
     public User() {
     }

@@ -17,5 +17,9 @@ public interface IUserService {
     public void deleteUser (Long id);
     
     // Busca un usuario
-    public User findUser (Long id);
+    public User findUserById (Long id);
+    
+    // Actualiza un usuario
+    public User updateUser(User user, Long user_id);
+    
 }
