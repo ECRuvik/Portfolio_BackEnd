@@ -1,13 +1,52 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.pruebaSB.SpringBoot.service;
 
-/**
- *
- * @author Usuario
- */
-public class SkillService {
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.pruebaSB.SpringBoot.interfaces.ISkillService;
+import com.pruebaSB.SpringBoot.model.Skill;
+import com.pruebaSB.SpringBoot.repository.SkillRepository;
+import org.springframework.stereotype.Service;
+
+@Service
+public class SkillService implements ISkillService {
+    
+    @Autowired
+    public SkillRepository skillRepo;
+    
+    @Override
+    public List<Skill> getSkills() {
+        return skillRepo.findAll();
+    }
+
+    @Override
+    public void saveSkill(Skill skill) {
+        skillRepo.save(skill);
+    }
+
+    @Override
+    public void deleteSkill(Long id) {
+        skillRepo.deleteById(id);
+    }
+
+    @Override
+    public Skill findSkillById(Long id) {
+        return skillRepo.findById(id).orElse(null);
+    }
+
+    @Override
+    public Skill updateSkill(Skill skill, Long skill_id) {
+        Optional<Skill> localSkill = skill.findById(skill_id);
+        Skill skilli = null;
+        if (localState.isPresent()) {
+            skilli = localSkill.get();
+            skilli.setLevel(level);
+            skilli.setName(name);
+            skilli = skillRepo.save(skill);
+        }
+        return skill;
+    }
     
 }

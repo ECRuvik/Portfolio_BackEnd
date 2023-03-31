@@ -6,7 +6,7 @@ import java.util.List;
 public interface IProyectService {
     
     // Trae lista de usuarios
-    public List<Proyect> getProyect ();
+    public List<Proyect> getProyects ();
     
     // Añade un usuario
     public void saveProyect (Proyect proyect);
