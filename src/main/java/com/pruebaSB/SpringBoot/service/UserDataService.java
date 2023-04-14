@@ -13,7 +13,7 @@ public class UserDataService implements IUserDataService {
 
     @Autowired
     public UserDataRepository dataRepo;
-    
+
     @Override
     public List<UserData> getUsersData() {
         return dataRepo.findAll();
@@ -40,16 +40,16 @@ public class UserDataService implements IUserDataService {
         UserData data = null;
         if (localDataUser.isPresent()) {
             data = localDataUser.get();
-            data.setAbout(data.getAbout());
-            data.setFullName(data.getFullName());
-            data.setLastName(data.getLastName());
-            data.setName(data.getName());
-            data.setResume(data.getResume());
-            data.setUrl_img(data.getUrl_img());
-            data.setUserLocation(data.getUserLocation());
+            data.setAbout(userData.getAbout());
+            data.setFullName(userData.getFullName());
+            data.setLastName(userData.getLastName());
+            data.setName(userData.getName());
+            data.setResume(userData.getResume());
+            data.setUrl_img(userData.getUrl_img());
+            data.setUserLocation(userData.getUserLocation());
             data = dataRepo.save(data);
         }
         return data;
     }
-    
+
 }

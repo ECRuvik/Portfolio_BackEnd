@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SkillService implements ISkillService {
-    
+
     @Autowired
     public SkillRepository skillRepo;
-    
+
     @Override
     public List<Skill> getSkills() {
         return skillRepo.findAll();
@@ -42,11 +42,11 @@ public class SkillService implements ISkillService {
         Skill skilli = null;
         if (localSkill.isPresent()) {
             skilli = localSkill.get();
-            skilli.setLevel(skilli.getLevel());
-            skilli.setName(skilli.getName());
-            skilli = skillRepo.save(skill);
+            skilli.setLevel(skill.getLevel());
+            skilli.setName(skill.getName());
+            skilli = skillRepo.save(skilli);
         }
-        return skill;
+        return skilli;
     }
-    
+
 }

@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class JobService implements IJobService {
-    
+
     @Autowired
     public JobRepository jobRepo;
-    
+
     @Override
     public List<Job> getJobs() {
         return jobRepo.findAll();
@@ -42,15 +42,15 @@ public class JobService implements IJobService {
         Job jobi = null;
         if (localJob.isPresent()) {
             jobi = localJob.get();
-            jobi.setAbout(jobi.getAbout());
-            jobi.setEndDate(jobi.getEndDate());
-            jobi.setLogo_url(jobi.getLogo_url());
-            jobi.setName(jobi.getName());
-            jobi.setPosition(jobi.getPosition());
-            jobi.setStartDate(jobi.getStartDate());
-            jobi = jobRepo.save(job);
+            jobi.setAbout(job.getAbout());
+            jobi.setEndDate(job.getEndDate());
+            jobi.setLogo_url(job.getLogo_url());
+            jobi.setName(job.getName());
+            jobi.setPosition(job.getPosition());
+            jobi.setStartDate(job.getStartDate());
+            jobi = jobRepo.save(jobi);
         }
-        return job;
+        return jobi;
     }
-    
+
 }

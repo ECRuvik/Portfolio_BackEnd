@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserLocationService implements IUserLocationService {
-    
+
     @Autowired
     public UserLocationRepository locationRepo;
-    
+
     @Override
     public List<UserLocation> getLocations() {
         return locationRepo.findAll();
@@ -42,12 +42,12 @@ public class UserLocationService implements IUserLocationService {
         UserLocation locationi = null;
         if (localLocation.isPresent()) {
             locationi = localLocation.get();
-            locationi.setAddress(locationi.getAddress());
-            locationi.setCity(locationi.getCity());
+            locationi.setAddress(location.getAddress());
+            locationi.setCity(location.getCity());
             locationi.setPostal_code(location.getPostal_code());
-            locationi = locationRepo.save(location);
+            locationi = locationRepo.save(locationi);
         }
         return locationi;
     }
-    
+
 }

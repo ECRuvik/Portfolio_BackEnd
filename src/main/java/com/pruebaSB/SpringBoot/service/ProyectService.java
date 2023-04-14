@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProyectService implements IProyectService {
-    
+
     @Autowired
     public ProyectRepository proyectRepo;
-    
+
     @Override
     public List<Proyect> getProyects() {
         return proyectRepo.findAll();
@@ -42,17 +42,17 @@ public class ProyectService implements IProyectService {
         Proyect proyecti = null;
         if (localProyect.isPresent()) {
             proyecti = localProyect.get();
-            proyecti.setAbout(proyecti.getAbout());
-            proyecti.setEndDate(proyecti.getEndDate());
-            proyecti.setLogo_url(proyecti.getLogo_url());
-            proyecti.setName(proyecti.getName());
-            proyecti.setStartDate(proyecti.getStartDate());
-            proyecti.setStatus(proyecti.getStatus());
-            proyecti.setType(proyecti.getType());
-            proyecti.setUrl(proyecti.getUrl());
-            proyecti = proyectRepo.save(proyect);
+            proyecti.setAbout(proyect.getAbout());
+            proyecti.setEndDate(proyect.getEndDate());
+            proyecti.setLogo_url(proyect.getLogo_url());
+            proyecti.setName(proyect.getName());
+            proyecti.setStartDate(proyect.getStartDate());
+            proyecti.setStatus(proyect.getStatus());
+            proyecti.setType(proyect.getType());
+            proyecti.setUrl(proyect.getUrl());
+            proyecti = proyectRepo.save(proyecti);
         }
-        return proyect;
+        return proyecti;
     }
-    
+
 }

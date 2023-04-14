@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StateService implements IStateService {
-    
+
     @Autowired
     public StateRepository stateRepo;
-    
+
     @Override
     public List<State> getStates() {
         return stateRepo.findAll();
@@ -42,10 +42,10 @@ public class StateService implements IStateService {
         State statei = null;
         if (localState.isPresent()) {
             statei = localState.get();
-            statei.setName(statei.getName());
-            statei = stateRepo.save(state);
+            statei.setName(state.getName());
+            statei = stateRepo.save(statei);
         }
-        return state;
+        return statei;
     }
-    
+
 }
