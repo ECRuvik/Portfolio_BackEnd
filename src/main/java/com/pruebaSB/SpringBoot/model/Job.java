@@ -1,7 +1,6 @@
 package com.pruebaSB.SpringBoot.model;
 
 import jakarta.persistence.*;
-import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,9 +14,11 @@ public class Job {
     private Long job_id;
     private String name;
     private String logo_url;
-    private Date startDate;
-    private Date endDate;
+    private String startDate;
+    private String endDate;
     private String position;
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String about;
     
     @ManyToOne(fetch = FetchType.LAZY)
@@ -27,7 +28,7 @@ public class Job {
     public Job() {
     }
 
-    public Job(Long job_id, String name, String logo_url, Date startDate, Date endDate, String position, String about) {
+    public Job(Long job_id, String name, String logo_url, String startDate, String endDate, String position, String about) {
         this.job_id = job_id;
         this.name = name;
         this.logo_url = logo_url;

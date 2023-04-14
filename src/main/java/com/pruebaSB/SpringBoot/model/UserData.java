@@ -15,7 +15,12 @@ public class UserData {
     private String name;
     private String lastName;
     private String fullName;
+    private String birthDate;
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String about;
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String resume;
     private String url_img;
     
@@ -42,11 +47,12 @@ public class UserData {
     public UserData() {
     }
 
-    public UserData(Long data_id, String name, String lastName, String fullName, String about, String resume, String url_img) {
+    public UserData(Long data_id, String name, String lastName, String fullName, String birthDate, String about, String resume, String url_img) {
         this.data_id = data_id;
         this.name = name;
         this.lastName = lastName;
         this.fullName = fullName;
+        this.birthDate = birthDate;
         this.about = about;
         this.resume = resume;
         this.url_img = url_img;
