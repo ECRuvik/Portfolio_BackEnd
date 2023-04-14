@@ -11,7 +11,7 @@ import com.pruebaSB.SpringBoot.model.Study;
 @RequestMapping("/studies")
 public class StudyController {
     
-    @Autowired
+    @Autowire
     private IStudyService studyServ;
     
     @GetMapping ("/watch")
