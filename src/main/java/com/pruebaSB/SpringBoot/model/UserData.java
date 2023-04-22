@@ -49,7 +49,7 @@ public class UserData {
     public UserData() {
     }
 
-    public UserData(Long data_id, String name, String lastName, String fullName, String birthDate, String position, String about, String resume, String url_img) {
+    public UserData(Long data_id, String name, String lastName, String fullName, String birthDate, String position, String about, String resume, String url_img, String logo_url) {
         this.data_id = data_id;
         this.name = name;
         this.lastName = lastName;
@@ -59,6 +59,7 @@ public class UserData {
         this.about = about;
         this.resume = resume;
         this.url_img = url_img;
+        this.logo_url = logo_url;
     }
     
 }
