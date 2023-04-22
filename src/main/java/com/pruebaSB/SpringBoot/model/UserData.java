@@ -24,6 +24,7 @@ public class UserData {
     @Column(columnDefinition = "TEXT")
     private String resume;
     private String url_img;
+    private String logo_url;
     
     @JoinColumn(name = "user_id")
     @OneToOne(fetch = FetchType.LAZY)
